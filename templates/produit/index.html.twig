@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit index{% endblock %}
+
+{% block body %}
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="page-title">Liste des Produits</h3>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Tableau de bord</a></li>
+
+                            <li class="breadcrumb-item active">parapharmacie</li>
+                        </ul>
+                        <form method="GET" action="{{ path("recherche_produit") }}">
+                            <input class="form-control mr-sm-6" name="search" type="search" placeholder="Rechercher... " aria-label="Search" >
+                        </form>
+                    </div>
+                    <div class="col-sm-12 col">
+                        <a href="{{ path('app_produit_new')}}" data-toggle="modal"
+                           class="btn btn-primary float-right mt-2">Add</a>
+
+                    </div>
+                    <div class="col-sm-12 col">
+                        <a class="btn btn-primary float-right mt-2" href="{{path('pdf') }}">  PDF </a>
+                        <script type="text/javascript">
+                            function imprimer_page(){
+                                window.print();
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <!-- /Page Header -->
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div class="table-responsive">
+
+                                    <table class="datatable table table-hover table-center mb-0">
+                                        <thead>
+                                        <tr>
+                                            <th>Nom</th>
+                                            <th>prix</th>
+                                            <th>Quantité</th>
+                                            <th>Disponibilité</th>
+                                             <th>Image</th>
+                                            <th class="text-right">Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for p in produits %}
+                                        <tr>
+                                            <td >{{ p.nomproduit }}</td>
+                                            <td>{{ p.prix }}Dt</td>
+                                            <td>{{ p.quantityproduit }}</td>
+                                            <td>{{ p.dispoproduit ? 'Yes' : 'No' }}</td>
+                                            <td><img src="{{ asset('/uploads/atachments/'~p.img) }}" class="img-rounded"/></td>
+                                            <td class="text-right">
+                                                <div class="actions">
+                                                    <a class="btn btn-sm bg-success-light" 
+                                                       href="{{ path('app_produit_edit', {'id': p.id}) }}">
+                                                        <i class="fe fe-pencil"></i> Edit
+                                                    </a>
+                                                
+                                                    <a  href="{{path('supprimerP',{'id':p.id}) }}"
+                                                       class="btn btn-sm bg-danger-light">
+                                                        <i class="fe fe-trash"></i> Delete
+                                                    </a>
+                                                    
+                                                </div>
+                                            </td>
+                                        
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

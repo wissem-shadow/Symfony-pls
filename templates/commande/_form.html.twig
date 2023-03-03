@@ -1,0 +1,6 @@
+{{ form_start(form) }}
+                    {{ form_widget(form._token) }}
+    {{ form_widget(form) }}
+<input type="text" name="lignecommande" id={{ produit.id }} value={{ produit.nomproduit }}>
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

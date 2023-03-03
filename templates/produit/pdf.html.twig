@@ -1,0 +1,34 @@
+
+<h1 class="align-center">Bienvenue dans votre application MediHouse </h1>
+
+<p>Voila la liste de tout les Produits</p>
+<table class="table" border="5" >
+    <thead>
+    <tr>
+
+        <th>nomproduit</th>
+        <th>prix</th>
+        <th>quantité</th>
+        <th>disponibilité</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for p in produits %}
+        <tr>
+            <td>{{ p.nomproduit }}</td>
+            <td>{{ p.prix }}</td>
+            <td>{{ p.quantityproduit }}</td>
+            <td>{{ p.dispoproduit ? 'Yes' : 'No' }}</td>
+
+
+
+
+
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="8">no records found</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

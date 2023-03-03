@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Produit{% endblock %}
+
+{% block body %}
+
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="page-title">Ajouter un Produit</h3>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Tableau de bord</a></li>
+
+                            <li class="breadcrumb-item active">parapharmacie</li>
+                        </ul>
+                        <br> <br>
+                        {{ include('produit/_form.html.twig') }}
+                    </div>
+                    <div class="col-sm-12 col">
+                        <a href="{{ path('app_produit_index')}}"
+                           class="btn btn-primary float-right mt-2">back to list</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Page Header -->
+
+
+
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

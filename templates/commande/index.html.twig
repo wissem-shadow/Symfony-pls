@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commande index{% endblock %}
+
+{% block body %}
+
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="page-title">Liste des Produits</h3>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Tableau de bord</a></li>
+
+                            <li class="breadcrumb-item active">parapharmacie</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- /Page Header -->
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div class="table-responsive">
+                                    <table class="datatable table table-hover table-center mb-0">
+                                        <thead>
+                                        <tr>
+                                            <th>num commande</th>
+                                            <th>prix</th>
+                                            <th>Quantité</th>
+                                            <th>Produit</th>
+
+                                            <th class="text-right">Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for c in commandes %}
+                                        <tr>
+                                            <td >{{ c.id }}</td>
+                                            <td>{{ c.prix }}Dt</td>
+                                            <td>{{ c.qtcommande }}
+                                            </td>{% for ligneCommande in c.lignecommande %}
+                                            <td>{{ ligneCommande.nomproduit }}</td>
+                                            {% endfor %}
+                                            <td class="text-right">
+                                                <div class="actions">
+                                                    <a class="btn btn-sm bg-success-light"
+                                                       href="{{ path('app_commande_edit', {'id': c.id}) }}">
+                                                        <i class="fe fe-pencil"></i> Edit
+                                                    </a>
+
+                                                    <a  href="{{path('app_commande_delete',{'id':c.id}) }}"
+                                                        class="btn btn-sm bg-danger-light">
+                                                        <i class="fe fe-trash"></i> Delete
+                                                    </a>
+
+                                                </div>
+                                            </td>
+
+                                            {% endfor %}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </table>
+
+{% endblock %}

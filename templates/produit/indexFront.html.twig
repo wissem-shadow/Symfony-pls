@@ -1,0 +1,90 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-bar">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-12 col-12">
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index-2.html">Accueil</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Parapharmacie</li>
+                        </ol>
+                    </nav>
+                    <h2 class="breadcrumb-title">Parapharmacie</h2>
+                    <form method="get" action="{{ path('recherche_produit') }}">
+                        <input type="text" name="name" placeholder="Search by name">
+                        <input type="text" name="price" placeholder="Search by price">
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Breadcrumb -->
+
+    <!-- Page Content -->
+    <div class="content" style="transform: none; min-height: 501px;">
+        <div class="container-fluid" style="transform: none;">
+            <div class="row" style="transform: none;">
+
+                <div class="col-md-7 col-lg-8 col-xl-12">
+
+                    <div class="row row-grid">
+                        {% for p in produits %}
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="profile-widget">
+                                <div class="doc-img">
+                                    <a href="doctor-profile.html">
+                                        <img class="img-fluid" alt="User Image" src="{{ asset('/uploads/atachments/'~p.img) }}">
+                                    </a>
+                                    <a href="javascript:void(0)" class="fav-btn">
+                                        <i class="far fa-bookmark"></i>
+                                    </a>
+                                </div>
+                                <div class="pro-content">
+                                    <h3 class="title">
+                                        <a href="doctor-profile.html">{{ p.nomproduit }}</a>
+
+                                    </h3>
+
+
+                                    <ul class="available-info">
+                                       
+                                        <li>
+                                            <i class="far fa-clock"></i>{{ p.dispoproduit ? 'Yes' : 'No' }}
+                                        </li>
+                                        <li>
+                                            <i class="far fa-money-bill-alt"></i>{{p.prix}} DT
+                                        </li>
+                                    </ul>
+                                    <div class="row row-sm">
+                                        <div class="col-6">
+                                            <a href="{{path('app_produit_showfront',{'id':p.id}) }}" class="btn view-btn">Detail</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="{{path('app_commande_new',{'id':p.id}) }}" class="btn book-btn">Commander</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        {% endfor %}
+                    </div>
+
+                </div>
+                <div class="justify-content-center">
+                {{ knp_pagination_render(produits) }} </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

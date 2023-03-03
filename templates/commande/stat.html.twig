@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Statisques{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />{% endblock %}
+{% block js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+            integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+{% block body %}
+    <di class="justify-content-center"> Statistiques</di>
+    <canvas id="commandes" width="400" height="100" ></canvas>
+
+    <canvas id="commandesDate" width="800" height="100"></canvas>
+    <script>
+    let commandes = document.querySelector("#commandes")
+    let cmdgraph = new Chart(commandes,{
+        type: "pie",
+        data:{
+            label:{{ prodnom|raw }},
+            datasets:[{
+                label: '# of Votes',
+                data: {{ prodcount|raw }},
+                backgroundColor:{{ prodcolor|raw }}
+        }]
+        }
+    })
+
+    let Commdates= document.querySelector("#commandesDate");
+    let dategraph= new Chart(Commdates,{
+        type: "line",
+        data:{
+            labels:{{ dates|raw }},
+            datasets: [{
+                label: "Commande Afecter par jours",
+                data: {{ comcount|raw }}
+
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    })
+</script>
+{% endblock %}

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% block stylesheets %}
+        <!-- code mta3 page commander -->
+        <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+        <link rel="stylesheet" href="{{asset('Commandetmp/style.css')}}">
+        <!-- code mta3 page commander -->
+        <link type="image/x-icon" href="{{ asset('assets/img/favicon1.png') }}" rel="icon">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css') }}">
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        <script src="{{ asset('assets/js/html5shiv.min.js')}}"></script>
+        <script src="{{ asset('assets/js/respond.min.js')}}"></script>
+
+
+    {% endblock %}
+    {% block js %}
+        <script src="//code.jquery.com/jquery.js"></script>
+        <!-- Load Flashy default JavaScript -->
+        <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+
+
+
+        <script src="{{ asset('assets/js/jquery.min.js')}}"></script>
+
+        <!-- Bootstrap Core JS -->
+        <script src="{{ asset('assets/js/popper.min.js')}}"></script>
+        <script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
+
+        <!-- Slick JS -->
+        <script src="{{ asset('aassets/js/slick.js')}} "></script>
+
+        <!-- Custom JS -->
+        <script src="{{ asset('assets/js/script.js')}}"></script>
+
+    {% endblock %}
+</head>
+<body>
+{% block header %}
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg header-nav">
+            <div class="navbar-header">
+                <a id="mobile_btn" href="javascript:void(0);">
+						<span class="bar-icon">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
+                </a>
+                <a href="index-2.html" class="navbar-brand logo">
+                    <img src="{{asset('assets/img/logo2.png')}}" class="img-fluid" alt="Logo">
+                </a>
+            </div>
+            <div class="main-menu-wrapper">
+                <div class="menu-header">
+                    <a href="index-2.html" class="menu-logo">
+                        <img src="{{asset('assets/img/logo2.png')}}" class="img-fluid" alt="Logo">
+                    </a>
+                    <a id="menu_close" class="menu-close" href="javascript:void(0);">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </div>
+                <ul class="main-nav">
+                    <li class="has-submenu">
+                        <a href="#">Accueil</a>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">Rechercher un médecin</a>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="/front">Parapharmacie</a>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">Reclamation</a>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">Forum</a>
+                    </li>
+                    <li class="has-submenu"><a href="#">profile</a></li>
+
+                    <!--<li class="has-submenu">
+                        <a href="#">Doctors <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="doctor-dashboard.html">Doctor Dashboard</a></li>
+                            <li><a href="appointments.html">Appointments</a></li>
+                            <li><a href="schedule-timings.html">Schedule Timing</a></li>
+                            <li><a href="my-patients.html">Patients List</a></li>
+                            <li><a href="patient-profile.html">Patients Profile</a></li>
+                            <li><a href="chat-doctor.html">Chat</a></li>
+                            <li><a href="invoices.html">Invoices</a></li>
+                            <li><a href="doctor-profile-settings.html">Profile Settings</a></li>
+                            <li><a href="reviews.html">Reviews</a></li>
+                            <li><a href="doctor-register.html">Doctor Register</a></li>
+                        </ul>
+                    </li>-->
+                    <!--<li class="has-submenu">
+                        <a href="#">Patients <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="search.html">Search Doctor</a></li>
+                            <li><a href="doctor-profile.html">Doctor Profile</a></li>
+                            <li><a href="booking.html">Booking</a></li>
+                            <li><a href="checkout.html">Checkout</a></li>
+                            <li><a href="booking-success.html">Booking Success</a></li>
+                            <li><a href="patient-dashboard.html">profile</a></li>
+                            <li><a href="favourites.html">Favourites</a></li>
+                            <li><a href="chat.html">Chat</a></li>
+                            <li><a href="profile-settings.html">Profile Settings</a></li>
+                            <li><a href="change-password.html">Change Password</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">Pages <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="voice-call.html">Voice Call</a></li>
+                            <li><a href="video-call.html">Video Call</a></li>
+                            <li><a href="search.html">Search Doctors</a></li>
+                            <li><a href="calendar.html">Calendar</a></li>
+                            <li><a href="components.html">Components</a></li>
+                            <li class="has-submenu">
+                                <a href="invoices.html">Invoices</a>
+                                <ul class="submenu">
+                                    <li><a href="invoices.html">Invoices</a></li>
+                                    <li><a href="invoice-view.html">Invoice View</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="blank-page.html">Starter Page</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="register.html">Register</a></li>
+                            <li><a href="forgot-password.html">Forgot Password</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="admin/index.html" target="_blank">Admin</a>
+                    </li>
+                    <li class="login-link">
+                        <a href="login.html">Login / Signup</a>
+                    </li>-->
+                    <li class="login-link">
+                        <a href="login.html">Se déconnecter</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="nav header-navbar-rht">
+                <li class="nav-item contact-item">
+                    <div class="header-contact-img">
+                        <i class="far fa-hospital"></i>
+                    </div>
+                    <div class="header-contact-detail">
+                        <p class="contact-header">Contact</p>
+                        <p class="contact-info-header"> +216 55 676 837</p>
+                    </div>
+                </li>
+
+                <!-- User Menu -->
+                <li class="nav-item dropdown has-arrow logged-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+							<span class="user-img">
+								<img class="rounded-circle" src="{{asset('assets/img/patients/patient.jpg')}}" width="31"
+                                     alt="Ryan Taylor">
+							</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="user-header">
+                            <div class="avatar avatar-sm">
+                                <img src="{{asset('assets/img/patients/patient.jpg')}}" alt="User Image"
+                                     class="avatar-img rounded-circle">
+                            </div>
+                            <div class="user-text">
+                                <h6>Richard Wilson</h6>
+                                <p class="text-muted mb-0">Patient</p>
+                            </div>
+                        </div>
+                        <a class="dropdown-item" href="patient-dashboard.html">Dashboard</a>
+                        <a class="dropdown-item" href="profile-settings.html">Profile Settings</a>
+                        <a class="dropdown-item" href="login.html">Se déconnecter</a>
+                    </div>
+                </li>
+                <!-- /User Menu -->
+
+            </ul>
+        </nav>
+    </header>
+{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+
+{% block footer %}
+    <!-- Footer -->
+    <footer class="footer">
+
+        <!-- Footer Top -->
+        <div class="footer-top">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-about">
+                            <div class="footer-logo">
+                                <img src="{{ asset('assets/img/footer-logo1.png') }}" alt="logo">
+                            </div>
+                            <div class="footer-about-content">
+                                <div class="social-icon">
+                                    <ul>
+                                        <li>
+                                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Footer Widget -->
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <!-- Footer Widget -->
+                        <!--<div class="footer-widget footer-menu">
+                            <h2 class="footer-title">For Patients</h2>
+                            <ul>
+                                <li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for
+                                        Doctors</a></li>
+                                <li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
+                                <li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a>
+                                </li>
+                                <li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a>
+                                </li>
+                                <li><a href="patient-dashboard.html"><i class="fas fa-angle-double-right"></i>
+                                        Patient Dashboard</a></li>
+                            </ul>
+                        </div>
+                         /Footer Widget -->
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <!-- Footer Widget -->
+                        <!--<div class="footer-widget footer-menu">
+                            <h2 class="footer-title">For Doctors</h2>
+                            <ul>
+                                <li><a href="appointments.html"><i class="fas fa-angle-double-right"></i>
+                                        Appointments</a></li>
+                                <li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
+                                <li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
+                                <li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i>
+                                        Register</a></li>
+                                <li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Doctor
+                                        Dashboard</a></li>
+                            </ul>
+                        </div>
+                         /Footer Widget -->
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-contact">
+                            <h2 class="footer-title">Contact Us</h2>
+                            <div class="footer-contact-info">
+                                <div class="footer-address">
+                                    <span><i class="fas fa-map-marker-alt"></i></span>
+                                    <p> esprit ghazala tunisie</p>
+                                </div>
+                                <p>
+                                    <i class="fas fa-phone-alt"></i>
+                                    +216 55 676 837
+                                </p>
+                                <p class="mb-0">
+                                    <i class="fas fa-envelope"></i>
+                                    contact@medihouse.com
+                                </p>
+                            </div>
+                        </div>
+                        <!-- /Footer Widget -->
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /Footer Top -->
+
+        <!-- Footer Bottom -->
+
+        <!-- /Footer Bottom -->
+
+    </footer>
+{% endblock %}
+
+
+{{ include('@MercurySeriesFlashy/flashy.html.twig') }}
+</body>
+
+
+</html>
